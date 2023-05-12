@@ -70,3 +70,7 @@ if uploaded_file is not None:
         ax.barh(most_common_df[0], most_common_df[1])
         plt.xticks(rotation='vertical')
         st.pyplot(fig)
+
+        # # emoji analysis
+        # emoji_df = helper.emoji_helper(selected_user, df)
+
