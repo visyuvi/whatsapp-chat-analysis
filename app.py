@@ -1,3 +1,4 @@
+import pandas as pd
 import streamlit as st
 import preprocessor, helper
 import matplotlib.pyplot as plt
@@ -57,6 +58,15 @@ if uploaded_file is not None:
         # WordCloud
         st.title('WordCloud')
         df_wc = helper.create_wordcloud(selected_user, df)
-        fig,ax = plt.subplots()
+        fig, ax = plt.subplots()
         ax.imshow(df_wc)
+        st.pyplot(fig)
+
+        # most common words
+        st.title('Most common words')
+        most_common_df = helper.most_common_words(selected_user, df)
+
+        fig, ax = plt.subplots()
+        ax.barh(most_common_df[0], most_common_df[1])
+        plt.xticks(rotation='vertical')
         st.pyplot(fig)
